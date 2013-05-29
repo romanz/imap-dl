@@ -7,6 +7,13 @@ def login(args):
     m.login(args.user, args.password)
     print 'Connected to {}.'.format(args.server)
 
+    if args.folder is None:
+        status, folders = m.list()
+        assert status == 'OK'
+        for f in folders:
+            print f 
+        return m, []
+
     m.select(args.folder)
     print 'Folder {} selected.'.format(args.folder)
 
