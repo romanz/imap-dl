@@ -14,7 +14,7 @@ def login(args):
             print f 
         return m, []
 
-    m.select(args.folder)
+    m.select(args.folder, readonly=True)
     print 'Folder {} selected.'.format(args.folder)
 
     result, data = m.uid('search', None, "ALL") # search and return uids instead
